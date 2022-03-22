@@ -51,3 +51,14 @@ Create a simple Pod inside **testing**, check it's logs and expose it for access
     kubectl expose pod nginx-hello --type=NodePort --port=8080 --target-port=80 --namespace=testing
 ##### Get url and port
     minikube service nginx-hello --url --namespace=testing
+
+Try to create a second pod from the **pods** folder. The service will expose both pods, see:
+
+    kubectl describe service --namespace=testing
+
+Accessing the pod via browser you'll see the *Server name* - either **nginx-hello** or **nginx-hello-2**. Delete the container wich is displayed on the website and reload: Kubernetes will automatically route the traffic to the other (healthy) container.
+
+##### Delete a Pod
+
+    kubectl delete pod nginx-hello --namespace=testing
+
