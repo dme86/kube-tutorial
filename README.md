@@ -12,6 +12,7 @@ Create Namespaces:
 with labels 
 
 > customer=foo
+
 > environment={testing,development,production}
 
     kubectl create -f https://raw.githubusercontent.com/dme86/kube-tutorial/main/namespaces.yml
