@@ -4,6 +4,8 @@ metadata:
   name: nginx-hello
   labels:
     role: myrole
+    environment: testing
+    app: nginx
 spec:
   containers:
     - name: web
