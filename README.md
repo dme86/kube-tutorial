@@ -1,7 +1,10 @@
-
 # kube-tutorial
 
-This tutorial requires minikube or K3S up and running
+This tutorial requires minikube or K3S up and running.
+
+# Namespaces
+
+A Kubernetes namespace provides the scope for Pods, Services, and Deployments in the cluster. Users interacting with one namespace do not see the content in another namespace.
 
 ### Namespaces and Quotas
 Create Namespaces:
@@ -35,6 +38,11 @@ Show **resourcequota** *mem-cpu-quota* from **testing** namespace:
     kubectl get resourcequota mem-cpu-quota --namespace=testing
     # full yaml output
     kubectl get resourcequota mem-cpu-quota --namespace=testing --output=yaml
+
+# Pods
+A pod is a group of one or more containers. A container is an enclosed, self-contained execution process, much like a process in an operating system. Kubernetes uses pods to run your code and images in the cluster.
+
+Kubernetes works with Pods, rather than containers, so that containers in the same pod can be guaranteed to run on the same machine. Containers in the same pod share their networking infrastructure, storage resources, and lifecycle.
 
 ### Create a Pod
 
@@ -74,3 +82,24 @@ Accessing the pod via browser you'll see the *Server name* - either **nginx-hell
 ##### Delete a Pod
 
     kubectl delete pod nginx-hello --namespace=testing
+
+# Deployments
+
+A deployment is an object in Kubernetes that lets you manage a set of identical pods.
+
+Without a deployment, you’d need to create, update, and delete a bunch of pods manually.
+
+With a deployment, you declare a single object in a YAML file. This object is responsible for creating the pods, making sure they stay up to date, and ensuring there are enough of them running
+
+You can also easily autoscale your applications using a Kubernetes deployment.
+
+### Create a Deployment
+
+This will create a simple deployment with the same container we used in the Pods section:
+
+    kubectl apply -f https://raw.githubusercontent.com/dme86/kube-tutorial/main/deployments/nginx-deployment.yml --namespace=testing
+
+Check your deployment:
+
+    kubectl get deployments --namespace=testing
+
