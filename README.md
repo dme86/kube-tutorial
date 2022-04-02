@@ -1,3 +1,4 @@
+
 # kube-tutorial
 
 This tutorial requires minikube or K3S up and running
@@ -43,6 +44,12 @@ Create a simple Pod inside **testing**, check it's logs and expose it for access
     kubectl create -f https://raw.githubusercontent.com/dme86/kube-tutorial/main/pods/nginx-hello.yml --namespace=testing
 ##### Check it's logs
     kubectl logs nginx-hello --namespace=testing
+###### (if using K3S make sure your hostname is defined in /etc/hosts):
+
+    127.0.1.1 babylon.loc babylon
+    127.0.0.1 localhost.localdomain localhost
+    ::1		  localhost6.localdomain6 localhost6
+
 ##### Show Pod-Infos
     kubectl get pods --namespace=testing -o wide
 ##### Get a Pod description
