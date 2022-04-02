@@ -1,3 +1,4 @@
+
 # kube-tutorial
 
 This tutorial requires minikube or K3S up and running.
@@ -56,7 +57,7 @@ Create a simple Pod inside **testing**, check it's logs and expose it for access
 
     127.0.1.1 babylon.loc babylon
     127.0.0.1 localhost.localdomain localhost
-    ::1		  localhost6.localdomain6 localhost6
+    ::1		 localhost6.localdomain6 localhost6
 
 ##### Show Pod-Infos
     kubectl get pods --namespace=testing -o wide
@@ -102,4 +103,8 @@ This will create a simple deployment with the same container we used in the Pods
 Check your deployment:
 
     kubectl get deployments --namespace=development
+
+Now you can effortlessly scale up or down the amount of containers in your deployment:
+
+    kubectl scale --replicas=6 deployment nginx-hello --namespace=development
 
