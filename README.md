@@ -95,11 +95,11 @@ You can also easily autoscale your applications using a Kubernetes deployment.
 
 ### Create a Deployment
 
-This will create a simple deployment with the same container we used in the Pods section:
+This will create a simple deployment with the same container we used in the Pods section inside our development namespace:
 
-    kubectl apply -f https://raw.githubusercontent.com/dme86/kube-tutorial/main/deployments/nginx-deployment.yml --namespace=testing
+    kubectl apply -f https://raw.githubusercontent.com/dme86/kube-tutorial/main/deployments/nginx-deployment.yml --namespace=development
 
 Check your deployment:
 
-    kubectl get deployments --namespace=testing
+    kubectl get deployments --namespace=development
 
