@@ -1,6 +1,6 @@
 # kube-tutorial
 
-This tutorial requires minikube up and running
+This tutorial requires minikube or K3S up and running
 
 ### Namespaces and Quotas
 Create Namespaces:
@@ -52,6 +52,12 @@ Create a simple Pod inside **testing**, check it's logs and expose it for access
 ##### Get url and port
     minikube service nginx-hello --url --namespace=testing
 
+###### (or if using K3S):
+
+    kubectl get service -n testing
+
+  
+
 Try to create a second pod from the **pods** folder. The service will expose both pods, see:
 
     kubectl describe service --namespace=testing
@@ -61,4 +67,3 @@ Accessing the pod via browser you'll see the *Server name* - either **nginx-hell
 ##### Delete a Pod
 
     kubectl delete pod nginx-hello --namespace=testing
-
