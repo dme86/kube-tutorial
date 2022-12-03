@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
     - name: web
-      image: nginxdemos/hello
+      image: nginxdemos/hello:0.3
       ports:
         - name: web
           containerPort: 80
