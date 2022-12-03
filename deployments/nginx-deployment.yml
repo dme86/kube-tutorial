@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
       - name: web
-        image: nginxdemos/hello
+        image: nginxdemos/hello:0.3
         ports:
         - containerPort: 80
